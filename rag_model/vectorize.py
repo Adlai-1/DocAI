@@ -7,11 +7,10 @@ from langchain_huggingface import HuggingFaceEmbeddings
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-def embed_and_save(file: str):
+def embed_and_save(file: str) -> str:
     docs = PyMuPDFLoader(f"./docs/{file}").load()
     text_split = RecursiveCharacterTextSplitter(chunk_size=1000)
     split_docs = text_split.split_documents(docs)
     embedding_model = HuggingFaceEmbeddings(model_name=config['AI']['embedding'])
     Chroma.from_documents(split_docs, embedding_model, persist_directory="./vectorstore")
-
-embed_and_save("Loyalty-and-disloyalty.pdf")
+    return 'Added new doc successfully!'

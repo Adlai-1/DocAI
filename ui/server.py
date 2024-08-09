@@ -3,6 +3,7 @@ import os, sys
 import configparser
 sys.path.append(os.path.abspath(os.path.dirname("rag_model")))
 from rag_model.model import call_rag
+from rag_model.vectorize import embed_and_save
 
 config = configparser.ConfigParser()
 config.read("config.ini")
@@ -22,9 +23,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         data = conn.recv(1024)
         if not data: break
         if data.decode().endswith(".pdf"):
-            print(data.decode())
+            res = embed_and_save(data.decode())
+            conn.send(res)
             continue
-        
         try:
             resp = call_rag(data.decode(), chats)
             for i in range(0, len(resp), 1024):
