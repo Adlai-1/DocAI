@@ -1,5 +1,5 @@
 # DocAI
-A Document Understanding AI system that glean insights from PDF documents.
+A Document Understanding AI system that gleans insights from PDF documents.
 
 # Features
 * CLI frontend: An easy to use CLI is provide for user interactions.
@@ -20,6 +20,6 @@ A Document Understanding AI system that glean insights from PDF documents.
 * Clone this repository (git clone https://github.com/Adlai-1/Document-Assistant)
 
 # DocAI snapshots
-![Screenshot (28)](https://github.com/user-attachments/assets/7076ff13-a89c-47e0-9485-df4d34fe7aef)
-![Screenshot (27)](https://github.com/user-attachments/assets/336296b5-b44f-4fe1-a50c-dea9b34e8c6e)
 ![Screenshot (26)](https://github.com/user-attachments/assets/8049effb-4357-46b0-9343-d5f5ddf1f857)
+![Screenshot (27)](https://github.com/user-attachments/assets/336296b5-b44f-4fe1-a50c-dea9b34e8c6e)
+![Screenshot (28)](https://github.com/user-attachments/assets/7076ff13-a89c-47e0-9485-df4d34fe7aef)
