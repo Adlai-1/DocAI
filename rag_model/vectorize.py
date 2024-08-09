@@ -9,11 +9,16 @@ config.read("config.ini")
 
 
 def embed_and_save(file: str) -> str:
-    docs = PyMuPDFLoader(f"./docs/{file}").load()
-    text_split = RecursiveCharacterTextSplitter(chunk_size=1000)
-    split_docs = text_split.split_documents(docs)
-    embedding_model = HuggingFaceEmbeddings(model_name=config["AI"]["embedding"])
-    Chroma.from_documents(
-        split_docs, embedding_model, persist_directory="./vectorstore"
-    )
-    return "Added new document successfully!"
+    try:
+        docs = PyMuPDFLoader(f"./docs/{file}").load()
+        text_split = RecursiveCharacterTextSplitter(chunk_size=1000)
+        split_docs = text_split.split_documents(docs)
+        embedding_model = HuggingFaceEmbeddings(model_name=config["AI"]["embedding"])
+        Chroma.from_documents(
+            split_docs, embedding_model, persist_directory="./vectorstore"
+        )
+        return "Added new document successfully!"
+    except ValueError:
+        return f"Can't find {file} in docs directory!"
+    except:
+        return "Error occured whiles performing embedding."
