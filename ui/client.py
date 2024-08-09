@@ -1,7 +1,5 @@
 import configparser
 import socket
-import time
-import sys
 
 config = configparser.ConfigParser()
 config.read("config.ini")
@@ -16,22 +14,29 @@ try:
         print("""Welcome!\nNote: To end a session press q.\nTo add a new document press a.\n""")
         
         while True:
-            data = input("Query: ")
+            data = input("Input: ")
             if data.lower() == 'q':
                 print("CONNECTION CLOSED!")
                 break
+            
             elif data.lower() == 'a':
-                print("Provide the filename...\n")
-                server.send(data.encode())
+                file = input("Provide the filename: ")
+                if file.endswith(".pdf"):
+                    server.send(file.encode())
+                else:
+                    print("Wrong file type provided!")
+                continue
+
             else:
                 server.send(data.encode())
             full_message = ""
+            
             while True:
-                chunk = server.recv(2048)
+                chunk = server.recv(1024)
                 if not chunk:
                     break
                 full_message += chunk.decode()
-                if len(chunk) < 2048:
+                if len(chunk) < 1024:
                     break
             print(f"Response: {full_message}\n")
 except:
