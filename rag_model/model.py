@@ -11,9 +11,11 @@ config = configparser.ConfigParser()
 config.read("config.ini")
 
 # initialize
-llm_model = ChatGroq(model=config['AI']['model'], api_key=config['AI']['key'])
-embedding_model = HuggingFaceEmbeddings(model_name=config['AI']['embedding'])
-vector = Chroma(embedding_function=embedding_model ,persist_directory="./vectorstore").as_retriever()
+llm_model = ChatGroq(model=config["AI"]["model"], api_key=config["AI"]["key"])
+embedding_model = HuggingFaceEmbeddings(model_name=config["AI"]["embedding"])
+vector = Chroma(
+    embedding_function=embedding_model, persist_directory="./vectorstore"
+).as_retriever()
 
 # prompts
 context = """
@@ -32,8 +34,9 @@ context_prompt = ChatPromptTemplate.from_messages(
 )
 
 llm = """
-You are a Document-Understanding AI assistant designed to answer questions \
-from documents provided to you. Use the retrieved context below to answer question \
+You name is DocAI and you help people get a good understanding \
+of any document they provided to you. Except for introductory messages, \
+always use the retrieved context below to answer the question. \
 If you don't know the answer to a question, make it known. \
 Lastly, make the interaction friendly and lively as possible.\n\n
 {context}
@@ -47,21 +50,16 @@ prompt = ChatPromptTemplate.from_messages(
 )
 
 # rag chain setup
-history_chain = create_history_aware_retriever(
-    llm_model, vector, context_prompt
-)
+history_chain = create_history_aware_retriever(llm_model, vector, context_prompt)
 qa_chain = create_stuff_documents_chain(llm_model, prompt)
 main_chain = create_retrieval_chain(history_chain, qa_chain)
 
+
 def store_chat(memory: list, query: str, resp: str):
-    memory.extend(
-        [
-            HumanMessage(content=query),
-            AIMessage(content=resp)
-        ]
-    )
+    memory.extend([HumanMessage(content=query), AIMessage(content=resp)])
+
 
 def call_rag(input: str, chat_memory: dict) -> str:
-    resp = main_chain.invoke({'input': input, 'history': chat_memory})
-    store_chat(chat_memory, input, resp['answer'])
-    return resp['answer']
+    resp = main_chain.invoke({"input": input, "history": chat_memory})
+    store_chat(chat_memory, input, resp["answer"])
+    return resp["answer"]
