@@ -33,4 +33,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
             for i in range(0, len(resp), 1024):
                 conn.send(resp[i : i + 1024].encode())
         except:
-            conn.send("Unable to generate a response. Try again later!")
+            conn.send(
+                "Unable to generate a response. Check your API key and try again later!".encode()
+            )
