@@ -17,10 +17,13 @@ A Document Understanding AI system that gleans insights from PDF documents.
 * Groq Language Models
 
 # Installation
-* Clone this repository: git clone https://github.com/Adlai-1/Document-Assistant.
+* Clone this repository: git clone [https://github.com/Adlai-1/DocAI](https://github.com/Adlai-1/DocAI).
 * Install the needed packages: pip install -r requirements.txt (must be run in the projet directory.)
 
 # DocAI snapshots
-![Screenshot (26)](https://github.com/user-attachments/assets/8049effb-4357-46b0-9343-d5f5ddf1f857)
-![Screenshot (27)](https://github.com/user-attachments/assets/336296b5-b44f-4fe1-a50c-dea9b34e8c6e)
-![Screenshot (28)](https://github.com/user-attachments/assets/7076ff13-a89c-47e0-9485-df4d34fe7aef)
+![Screenshot (33)](https://github.com/user-attachments/assets/1cf25d1c-4aaa-4a4e-b1b4-64a3a199edec)
+![Screenshot (34)](https://github.com/user-attachments/assets/fd6f83b1-6b31-468c-b6ad-d9561e753760)
+![Screenshot (35)](https://github.com/user-attachments/assets/0564902b-c716-412b-a837-4dee1390fb23)
+![Screenshot (36)](https://github.com/user-attachments/assets/f8180618-27a1-4f00-97bc-bcc10f1aa6ca)
+
+
