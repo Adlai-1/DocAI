@@ -18,7 +18,7 @@ A Document Understanding AI system that gleans insights from PDF documents.
 
 # Installation
 * Clone this repository: git clone [https://github.com/Adlai-1/DocAI](https://github.com/Adlai-1/DocAI).
-* Install the needed packages: pip install -r requirements.txt (must be run in the projet directory.)
+* Install the needed packages: pip install -r requirements.txt (must be executed in the project directory.)
 * Add your API key to config.ini You can obtain an API key from GroqCloud (https://console.groq.com/keys)
 ![Screenshot (37)](https://github.com/user-attachments/assets/ef91cd04-33af-4faa-83af-3702ef7711e8)
 
