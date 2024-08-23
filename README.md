@@ -1,8 +1,10 @@
+![Screenshot (38)](https://github.com/user-attachments/assets/d43cd191-3dda-4a62-903e-947c9c2c13ea)
 # DocAI
 A Document Understanding AI system that gleans insights from PDF documents.
 
 # Features
 * CLI Frontend: Provides an easy-to-use command-line interface for user interactions.
+* Web Frontend: Provides a very simple interactive UI.
 * Content Processing: Capable of accepting and processing information from PDF files.
 * Natural Language Processing: Receives, understands, and provides feedback in natural language.
 * Context-Aware: Understands conversation context and answers questions accordingly.
