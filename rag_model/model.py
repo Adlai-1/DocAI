@@ -61,5 +61,5 @@ def store_chat(memory: list, query: str, resp: str):
 
 def call_rag(input: str, chat_memory: dict) -> str:
     resp = main_chain.invoke({"input": input, "history": chat_memory})
-    store_chat(chat_memory, input, resp["answer"])
+    #store_chat(chat_memory, input, resp["answer"])
     return resp["answer"]

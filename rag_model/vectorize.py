@@ -1,20 +1,26 @@
 import configparser
+from PyPDF2 import PdfReader
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 
 config = configparser.ConfigParser()
 config.read("config.ini")
 
+def get_pdf_text(pdf):
+    text = ""
+    pdf_reader = PdfReader(pdf)
+    for page in pdf_reader.pages:
+        text += page.extract_text()
+    return text
 
 def embed_and_save(file: str) -> str:
     try:
-        docs = PyMuPDFLoader(f"./docs/{file}").load()
-        text_split = RecursiveCharacterTextSplitter(chunk_size=1000)
-        split_docs = text_split.split_documents(docs)
+        docs = get_pdf_text(file)
+        text_split = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
+        split_docs = text_split.split_text(docs)
         embedding_model = HuggingFaceEmbeddings(model_name=config["AI"]["embedding"])
-        Chroma.from_documents(
+        Chroma.from_texts(
             split_docs, embedding_model, persist_directory="./vectorstore"
         )
         return "Added new document successfully!"
