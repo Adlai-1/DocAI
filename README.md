@@ -3,6 +3,7 @@ A Document Understanding AI system that gleans insights from PDF documents.
 
 # Features
 * CLI Frontend: Provides an easy-to-use command-line interface for user interactions.
+* Web Frontend: Provides a very simple interactive UI.
 * Content Processing: Capable of accepting and processing information from PDF files.
 * Natural Language Processing: Receives, understands, and provides feedback in natural language.
 * Context-Aware: Understands conversation context and answers questions accordingly.
@@ -28,5 +29,4 @@ A Document Understanding AI system that gleans insights from PDF documents.
 ![Screenshot (34)](https://github.com/user-attachments/assets/fd6f83b1-6b31-468c-b6ad-d9561e753760)
 ![Screenshot (35)](https://github.com/user-attachments/assets/0564902b-c716-412b-a837-4dee1390fb23)
 ![Screenshot (36)](https://github.com/user-attachments/assets/f8180618-27a1-4f00-97bc-bcc10f1aa6ca)
-
-
+![Screenshot (38)](https://github.com/user-attachments/assets/d43cd191-3dda-4a62-903e-947c9c2c13ea)
