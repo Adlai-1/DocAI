@@ -13,9 +13,7 @@ config.read("config.ini")
 # initialize
 llm_model = ChatGroq(model=config["AI"]["model"], api_key=config["AI"]["key"])
 embedding_model = HuggingFaceEmbeddings(model_name=config["AI"]["embedding"])
-vector = Chroma(
-    embedding_function=embedding_model, persist_directory="./vectorstore"
-).as_retriever()
+vector = Chroma(embedding_function=embedding_model).as_retriever(search_kwargs={'k':3})
 
 # prompts
 context = """
@@ -63,3 +61,5 @@ def call_rag(input: str, chat_memory: dict) -> str:
     resp = main_chain.invoke({"input": input, "history": chat_memory})
     #store_chat(chat_memory, input, resp["answer"])
     return resp["answer"]
+
+#, persist_directory="./vectorstore"

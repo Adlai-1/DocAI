@@ -20,11 +20,11 @@ def embed_and_save(file: str) -> str:
         text_split = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
         split_docs = text_split.split_text(docs)
         embedding_model = HuggingFaceEmbeddings(model_name=config["AI"]["embedding"])
-        Chroma.from_texts(
-            split_docs, embedding_model, persist_directory="./vectorstore"
-        )
+        Chroma.from_texts(split_docs, embedding_model)
         return "Added new document successfully!"
     except ValueError:
         return f"Can't find {file} in docs directory!"
     except:
         return "Error occured whiles performing embedding."
+
+# , persist_directory="./vectorstore"
