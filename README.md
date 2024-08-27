@@ -31,5 +31,5 @@ A Document Understanding AI system that gleans insights from PDF documents.
 ![Screenshot (34)](https://github.com/user-attachments/assets/fd6f83b1-6b31-468c-b6ad-d9561e753760)
 ![Screenshot (35)](https://github.com/user-attachments/assets/0564902b-c716-412b-a837-4dee1390fb23)
 ![Screenshot (36)](https://github.com/user-attachments/assets/f8180618-27a1-4f00-97bc-bcc10f1aa6ca)
-![Screenshot (44)](https://github.com/user-attachments/assets/1d92fa46-3c3f-46a1-876d-aab4ef81747b)
 ![Screenshot (43)](https://github.com/user-attachments/assets/49e9175a-2b59-4d44-a7ca-fe644d5b61cb)
+![Screenshot (44)](https://github.com/user-attachments/assets/1d92fa46-3c3f-46a1-876d-aab4ef81747b)
